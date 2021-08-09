@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:partner_qsd/util/const.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'inside_tabs/faq.dart';
-import 'inside_tabs/jobs.dart';
-import 'inside_tabs/profile.dart';
+import 'inside_home_tabs/faq.dart';
+import 'inside_home_tabs/jobs.dart';
+import 'inside_home_tabs/profile.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -36,7 +34,7 @@ class _DashboardState extends State<Dashboard> {
               icon: const Icon(Icons.near_me_outlined),
               color: black,
             ),
-            customText('1901 Thornridge Cir. Shiloh ▼', black, 15,
+            customText('Select Location ▼', black, 15,
                 fontWeight: FontWeight.w400),
           ],
         ),

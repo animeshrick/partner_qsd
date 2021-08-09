@@ -59,6 +59,11 @@ Widget customUnderlineText(String text, Color color, double size,
       ));
 }
 
+const mapImg = 'https://www.mapsofindia.com/maps/westbengal/Serampore.jpg';
+const profileImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8vU2mhzGRicyo6xA-UGQ7gS6j19Z9tXeTQ&usqp=CAU';
+
+class Static {}
+
 /// ------------------ color ----------------
 final Color violet = Colors.purple;
 final Color indigo = Colors.indigo;
