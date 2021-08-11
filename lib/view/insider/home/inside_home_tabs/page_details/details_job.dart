@@ -22,14 +22,14 @@ class _JobsDetailsState extends State<JobsDetails> {
           iconTheme: IconThemeData(
             color: mainColor,
           ),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  (Icons.more_vert),
-                  color: black,
-                ))
-          ],
+          // actions: [
+          //   IconButton(
+          //       onPressed: () {},
+          //       icon: Icon(
+          //         (Icons.more_vert),
+          //         color: black,
+          //       ))
+          // ],
           backgroundColor: white,
           bottom: TabBar(
             indicatorColor: mainColor,

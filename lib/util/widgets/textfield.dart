@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../const.dart';
 
-Widget textField(hintText, keyboardType, String? Function(String?)? validator) {
+Widget textField(hintText, keyboardType, String? Function(String?)? validator,) {
   return TextFormField(
     validator: validator,
     keyboardType: keyboardType,

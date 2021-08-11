@@ -71,6 +71,33 @@ class _SignupState extends State<Signup> {
               const SizedBox(
                 height: 15,
               ),
+              TextFormField(
+                controller: passwordcontroller,
+                autofocus: false,
+                obscureText: isHidden,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Enter Confirm Password password ";
+                  } else if (value.trim().isEmpty) {
+                    return "Enter Confirm Password password ";
+                  }
+                },
+                decoration: InputDecoration(
+                  suffixIcon: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isHidden = !isHidden;
+                        });
+                      },
+                      child: Icon(
+                          isHidden ? Icons.visibility_off : Icons.visibility)),
+                  hintText: 'Password',
+                  border: const OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
               button(
                   borderColor: white,
                   btnColor: mainColor,

@@ -4,7 +4,9 @@ import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:partner_qsd/util/const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:partner_qsd/view/insider/home/inside_home_tabs/account_settings/account_settings.dart';
 
+import 'pan_bank_gst_details/pan_bank_gst_details.dart';
 import 'wallet_pages/wallet_dashoard.dart';
 
 class Profile extends StatefulWidget {
@@ -144,7 +146,9 @@ class _ProfileState extends State<Profile> {
               height: 25,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => const PanBankGstDetails());
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -171,7 +175,9 @@ class _ProfileState extends State<Profile> {
               height: 15,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => const AccountSetting());
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

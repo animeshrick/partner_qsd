@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partner_qsd/util/const.dart';
 import 'inside_home_tabs/faq.dart';
 import 'inside_home_tabs/jobs.dart';
 import 'inside_home_tabs/profile.dart';
+import 'notification_page.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -42,7 +44,9 @@ class _DashboardState extends State<Dashboard> {
         elevation: 0.5,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => const NotificationPage());
+            },
             icon: const Icon(Icons.notifications_outlined),
             color: black,
           )
