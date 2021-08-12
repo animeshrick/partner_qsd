@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'util/const.dart';
 import 'view/auth/introduction.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,12 +17,14 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         allowFontScaling: false,
         designSize: const Size(360, 690),
-        builder: () => const GetMaterialApp(
+        builder: () => GetMaterialApp(
               debugShowCheckedModeBanner: false,
-              home: SplashScreen(),
+              theme: ThemeData(fontFamily: 'prompt-regular'),
+              home: const SplashScreen(),
             ));
   }
 }
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -34,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() =>const Introduction());
+      Get.off(() => const Introduction());
     });
   }
 
@@ -43,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: Colors.pink[50],
+      color:const Color(0xffffe2fb),
       child: Center(
         child: Image.asset(
           logo,

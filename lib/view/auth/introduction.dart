@@ -39,17 +39,17 @@ class _IntroductionState extends State<Introduction> {
               ),
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 20, 15, 0),
-                      child: customInkWellText(() {
-                        Get.to(() => const ProfessionChoose());
-                      }, 'Skip', textColor, 16),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(logo, height: 50),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 15, 0),
+                        child: customInkWellText(() {
+                          Get.to(() => const ProfessionChoose());
+                        }, 'Skip', textColor, 16),
+                      ),
+                    ],
                   ),
                   customText('Become a partner', textColor, 55),
                   const SizedBox(
@@ -73,9 +73,9 @@ class _IntroductionState extends State<Introduction> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
                   Row(
                     children: [
                       CircleAvatar(
@@ -94,9 +94,9 @@ class _IntroductionState extends State<Introduction> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
                   Row(
                     children: [
                       CircleAvatar(
