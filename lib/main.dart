@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
 import 'package:get/get.dart';
+import 'package:partner_qsd/util/shared_pref.dart';
+import 'package:partner_qsd/view/insider/home/dashboard.dart';
 
 import 'util/const.dart';
 import 'view/auth/introduction.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  sp.init();
   runApp(const MyApp());
 }
 
@@ -37,7 +41,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() => const Introduction());
+      // print('login- ${sp.isLogin()}');
+      !sp.isLogin()!
+          ? Get.off(() => const Introduction())
+          : Get.off(() => const Dashboard());
     });
   }
 
@@ -46,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color:const Color(0xffffe2fb),
+      color: const Color(0xffffe2fb),
       child: Center(
         child: Image.asset(
           logo,

@@ -4,6 +4,8 @@ import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:partner_qsd/util/const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:partner_qsd/util/shared_pref.dart';
+import 'package:partner_qsd/view/auth/introduction.dart';
 import 'package:partner_qsd/view/insider/home/inside_home_tabs/account_settings/account_settings.dart';
 
 import 'job_history/job_history_page.dart';
@@ -73,12 +75,14 @@ class _ProfileState extends State<Profile> {
                   fontWeight: FontWeight.bold),
               RichText(
                 text: TextSpan(
-                  style:
-                      const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
                   children: <TextSpan>[
                     TextSpan(
-                        text: 'name2@Gmail.com ', style: TextStyle(color: grey)),
-                    TextSpan(text: ' +9768766868', style: TextStyle(color: grey)),
+                        text: 'name2@Gmail.com ',
+                        style: TextStyle(color: grey)),
+                    TextSpan(
+                        text: ' +9768766868', style: TextStyle(color: grey)),
                   ],
                 ),
               ),
@@ -91,7 +95,7 @@ class _ProfileState extends State<Profile> {
               ),
               InkWell(
                 onTap: () {
-                  Get.to(()=>const JobHistoryPage());
+                  Get.to(() => const JobHistoryPage());
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -145,7 +149,8 @@ class _ProfileState extends State<Profile> {
               const SizedBox(
                 height: 25,
               ),
-              customText('Account', commonColor, 23, fontWeight: FontWeight.bold),
+              customText('Account', commonColor, 23,
+                  fontWeight: FontWeight.bold),
               const SizedBox(
                 height: 25,
               ),
@@ -164,7 +169,8 @@ class _ProfileState extends State<Profile> {
                         const SizedBox(
                           width: 20,
                         ),
-                        customText('GST, PAN and Bank Details', commonColor, 17),
+                        customText(
+                            'GST, PAN and Bank Details', commonColor, 17),
                       ],
                     ),
                     Icon(
@@ -192,6 +198,34 @@ class _ProfileState extends State<Profile> {
                           width: 20,
                         ),
                         customText('Account settings', commonColor, 17),
+                      ],
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 18,
+                      color: mainColor,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              InkWell(
+                onTap: () {
+                  sp.clear();
+                  Get.off(() => const Introduction());
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        const Icon(Icons.logout),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        customText('Log Out', commonColor, 17),
                       ],
                     ),
                     Icon(

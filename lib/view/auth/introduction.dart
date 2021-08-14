@@ -29,7 +29,7 @@ class _IntroductionState extends State<Introduction> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 65, 10, 0),
               height: 0.8.sh,
               decoration: const BoxDecoration(
                 image: DecorationImage(

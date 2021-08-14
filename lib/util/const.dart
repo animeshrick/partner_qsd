@@ -60,7 +60,8 @@ Widget customUnderlineText(String text, Color color, double size,
 }
 
 const mapImg = 'https://www.mapsofindia.com/maps/westbengal/Serampore.jpg';
-const profileImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8vU2mhzGRicyo6xA-UGQ7gS6j19Z9tXeTQ&usqp=CAU';
+const profileImg =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8vU2mhzGRicyo6xA-UGQ7gS6j19Z9tXeTQ&usqp=CAU';
 
 class Static {}
 
@@ -107,3 +108,14 @@ showProgress(BuildContext context) {
 void hideProgress(BuildContext context) {
   Navigator.pop(context);
 }
+
+String internetError = "Please check your Internet! 😢";
+String success = "success";
+String failed = "fail";
+
+/* ------------------- APIs -------------------- */
+
+String baseUrl = 'https://laravel.gowebbidemo.com/122408/public/api/v1/';
+
+String register = baseUrl + 'provider-register';
+String login = baseUrl + 'provider-login';
