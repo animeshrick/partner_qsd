@@ -205,6 +205,7 @@ class _SignupState extends State<Signup> {
   }
 
   void _registerNewUser() async {
+    print('');
     showProgress(context);
     var res = await networkcallService.customerRegister(
         confPassword: confPasswordCtrl.text,
