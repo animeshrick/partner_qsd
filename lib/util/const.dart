@@ -119,3 +119,5 @@ String baseUrl = 'https://laravel.gowebbidemo.com/122408/public/api/v1/';
 
 String register = baseUrl + 'provider-register';
 String login = baseUrl + 'provider-login';
+String categories = baseUrl + 'get-categories';
+String subCategories = baseUrl + 'get-sub-categories';

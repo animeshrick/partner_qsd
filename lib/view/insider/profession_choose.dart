@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:partner_qsd/api/api_call.dart';
+import 'package:partner_qsd/model/category_models/category_model.dart';
 import 'package:partner_qsd/util/const.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'home/dashboard.dart';
 
 class ProfessionChoose extends StatefulWidget {
@@ -14,17 +16,27 @@ class ProfessionChoose extends StatefulWidget {
 }
 
 class _ProfessionChooseState extends State<ProfessionChoose> {
+  final _catList = <CategoriesData>[].obs;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      _chooseProfession();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: AppBar(
-        elevation: 1,
-        backgroundColor: white,
-        iconTheme: IconThemeData(
-          color: mainColor,
-        ),
-      ),
+      // appBar: AppBar(
+      //   elevation: 1,
+      //   backgroundColor: white,
+      //   iconTheme: IconThemeData(
+      //     color: mainColor,
+      //   ),
+      // ),
       bottomNavigationBar: Container(
         color: commonColor,
         height: 70,
@@ -54,18 +66,21 @@ class _ProfessionChooseState extends State<ProfessionChoose> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 0.04.sh,
+              ),
               customText('What is your profession?', textColor, 20,
                   fontWeight: FontWeight.bold),
               const SizedBox(
                 height: 20,
               ),
-              ListView.separated(
+    Obx(()=>          ListView.separated(
                 primary: false,
                 shrinkWrap: true,
                 separatorBuilder: (_, __) => const SizedBox(
                   height: 15,
                 ),
-                itemCount: 10,
+                itemCount: _catList.length,
                 itemBuilder: (_, int i) {
                   return Card(
                     color: mainColor,
@@ -76,7 +91,7 @@ class _ProfessionChooseState extends State<ProfessionChoose> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              customText('Bathroom cleaning', white, 15),
+                              customText(_catList[i].categoryName, white, 15),
                               CircleAvatar(
                                 radius: 15,
                                 backgroundColor: Colors.white.withOpacity(0.2),
@@ -92,11 +107,17 @@ class _ProfessionChooseState extends State<ProfessionChoose> {
                     ),
                   );
                 },
-              )
+              ))
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _chooseProfession() async {
+    showProgress(context);
+    _catList.value = (await networkcallService.getProfessionCat())!;
+    hideProgress(context);
   }
 }

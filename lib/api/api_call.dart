@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-
-import 'package:partner_qsd/model/login_model.dart';
-import 'package:partner_qsd/model/register_model.dart';
+import 'package:partner_qsd/model/auth_models/login_model.dart';
+import 'package:partner_qsd/model/auth_models/register_model.dart';
+import 'package:partner_qsd/model/category_models/category_model.dart';
 import 'package:partner_qsd/util/const.dart';
 import 'package:partner_qsd/util/shared_pref.dart';
-import 'package:partner_qsd/view/auth/sign_in.dart';
-
 import 'my_client.dart';
 
 class Networkcall {
@@ -16,6 +14,32 @@ class Networkcall {
 
   factory Networkcall() {
     return networkcall;
+  }
+
+  /* --------------- choose profession [category] -----------*/
+  Future<List<CategoriesData>?> getProfessionCat() async {
+    final response = await MyClient().get(Uri.parse(categories));
+    final resp = jsonDecode(response.body);
+    // ignore: avoid_print
+    print('$categories $resp');
+    try {
+      if (response.statusCode == 200) {
+        final myResponse = CategoriesModel.fromJson(resp);
+        if (myResponse.status == success) {
+          // showToast(myResponse.data, green);
+          return myResponse.catData;
+        } else {
+          return myResponse.catData;
+        }
+      } else {
+        var error = resp['errors'] as Map;
+        showToast(error.values.first[0].toString(), red);
+        return [];
+      }
+    } on SocketException {
+      showToast(internetError, red);
+      throw internetError;
+    }
   }
 
   /// ------------- partner register ------------------

@@ -6,6 +6,7 @@ import 'package:partner_qsd/view/insider/home/dashboard.dart';
 
 import 'util/const.dart';
 import 'view/auth/introduction.dart';
+import 'view/insider/profession_choose.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // print('login- ${sp.isLogin()}');
       !sp.isLogin()!
           ? Get.off(() => const Introduction())
-          : Get.off(() => const Dashboard());
+          : Get.off(() => const ProfessionChoose());
     });
   }
 
